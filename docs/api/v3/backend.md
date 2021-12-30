@@ -77,7 +77,9 @@ Arguments:
 - **table** `table` _required_
 - **func** `function` _required_
 
-Returns: `true on success or nil`
+Returns:
+- On fail: `nil`
+- On success: `boolean`
 
 Example:
 ```lua
@@ -105,7 +107,9 @@ Gets the auras on the specified token.
 Arguments:
 - **target** `token|guid` _required_
 
-Returns: `table or nil` _keys: number, values: subkeys: name [string], ID [number]_
+Returns: 
+- On fail: `nil`
+- On success: `table` _keys: number, values: table; subkeys: name [string], ID [number]_
 
 Example:
 ```lua
@@ -120,35 +124,66 @@ end
 
 Description:
 
-Arguments:
+Gets the current map information for the player.
 
-Returns:
+Arguments: `none`
+
+Returns: `mapid [number], tilex [number], tiley [number]`
 
 Example:
 ```lua
-
+local mapid, tilex, tiley = ni.backend.GetMapInfo();
 ```
 
 ## BestLocation
 
 Description:
 
+Retrieves the best location that meets the criteria passed to the function.
+
 Arguments:
+- **target** `token|guid` _required_
+- **distance** `number` _required_
+- **radius** `number` _required_
+- **friendly** `boolean` _optional; default: false_
+- **increment** `number` _optional; default: 1.0_
+- **heightmax** `number` _optional; default: 20.0_
+- **callback** `function` _optional_
+- **score** `number` _optional; default: 300.0_
 
 Returns:
+- On fail: `nil`
+- On success: `x [number], y [number], z [number]`
+
+Notes:
+
+The callback function is to help assess each objects score value. The lower a total score, the more likely that area will be skipped. The callback takes 1 argument which is the guid, and must return a score (number).
 
 Example:
 ```lua
-
+local x, y, z = ni.backend.BestLocation("target", 10, 8, false, 1, 10, function(guid)
+	if ni.unit.debuff(guid, "Something bad") then
+		return -1000 --Simulate an avoid this mob area
+	end
+	return 100
+end);
+if x then
+	print(string.format("Best location at %d %d %d", x, y, z))
+end
 ```
 
 ## CombatReach
 
 Description:
 
+Gets the combat reach for the token specified.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `number`
 
 Example:
 ```lua
@@ -159,9 +194,27 @@ Example:
 
 Description:
 
-Arguments:
+Checks if the object specified exists within the object manager (slightly different than UnitExists).
 
-Returns:
+Arguments:
+- **target** `token|guid` _required_
+
+Returns: `boolean`
+
+Example:
+```lua
+
+```
+
+## GetObjects
+
+Description:
+
+Gets all of the objects currently in the object manager.
+
+Arguments: `none`
+
+Returns: `table` _keys: number, values: table; subkeys: guid [string], type [number], name [string]_
 
 Example:
 ```lua
@@ -172,9 +225,14 @@ Example:
 
 Description:
 
+Gets information pertaining to the token specified.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- If unit: `x [number], y [number], z [number], facing [number], target_guid [string], height [number]`
+- All others: `x [number], y [number], z [number]`
 
 Example:
 ```lua
@@ -185,9 +243,14 @@ Example:
 
 Description:
 
-Arguments:
+Checks if one token is facing another within a certain field of view.
 
-Returns:
+Arguments:
+- **target_a** `token|guid` _required_
+- **target_b** `token|guid` _required_
+- **degrees** `number` _optional; default: 180.0_
+
+Returns: `boolean`
 
 Example:
 ```lua
@@ -198,9 +261,13 @@ Example:
 
 Description:
 
-Arguments:
+Checks if one token is behind another.
 
-Returns:
+Arguments:
+- **target_a** `token|guid` _required_
+- **target_b** `token|guid` _required_
+
+Returns: `boolean`
 
 Example:
 ```lua
@@ -211,9 +278,15 @@ Example:
 
 Description:
 
+Checks of the token specified has a specific aura (by ID).
+
 Arguments:
+- **target** `token|guid` _required_
+- **id** `number` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `boolean`
 
 Example:
 ```lua
@@ -224,9 +297,16 @@ Example:
 
 Description:
 
+Encrypts a string with AES-256 encryption.
+
 Arguments:
+- **content** `string` _required_
+- **key** `string` _required_
+- **iv** `string` _optional; default: Random generated_
 
 Returns:
+- On fail: `nil, err_msg [string]`
+- On success: `encrypted_content [string]`
 
 Example:
 ```lua
@@ -237,9 +317,14 @@ Example:
 
 Description:
 
+Decrypts an AES-256 encrypted string. On failure, the second return contains the error message.
+
 Arguments:
+- **content** `string` _required_
+- **key** `string` _required_
 
 Returns:
+- On fail: `nil, string`
 
 Example:
 ```lua
@@ -250,9 +335,18 @@ Example:
 
 Description:
 
-Arguments:
+Parses a file with the given callback function.
 
-Returns:
+Arguments:
+- **file** `string` _required_
+- **key** `string` _optional; default: HWID_
+- **callback** `function` _required_
+
+Returns: `boolean, err_msg [string]`
+
+Notes:
+
+This function doesn't require the key, and when the key is not specified, the function argument becomes the second, not third. The callback function takes 1 argument which is the file contents (decrypted if encrypted file is specified).
 
 Example:
 ```lua
@@ -263,9 +357,20 @@ Example:
 
 Description:
 
+Loads a file into the stack as a function, similar to loadstring.
+
 Arguments:
+- **file** `string` _required_
+- **key** `string` _optional; default: none_
+- **chunk_name** `string` _optional; default: ?_
 
 Returns:
+- On fail: `nil, err_msg [string]`
+- On success: `function`
+
+Notes:
+
+This function doesn't require the key, and when the key is not specified, the chunk name becomes the second argument.
 
 Example:
 ```lua
@@ -276,9 +381,15 @@ Example:
 
 Description:
 
+Loads a string into the stack as a function, similar to loadstring.
+
 Arguments:
+- **content** `string` _required_
+- **chunk_name** `string` _optional; default: ?_
 
 Returns:
+- On fail: `nil, err_msg [string]`
+- On success: `function`
 
 Example:
 ```lua
@@ -289,9 +400,15 @@ Example:
 
 Description:
 
+Gets the content of a file.
+
 Arguments:
+- **file** `string` _required_
+- **key** `string` _optional; default: HWID_
 
 Returns:
+- On fail: `nil`
+- On success: `content [string]`
 
 Example:
 ```lua
@@ -302,9 +419,15 @@ Example:
 
 Description:
 
+Saves the content to a file.
+
 Arguments:
+- **file** `string` _required_
+- **content** `string` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `boolean`
 
 Example:
 ```lua
@@ -315,9 +438,11 @@ Example:
 
 Description:
 
-Arguments:
+Gets the base folder for ni.
 
-Returns:
+Arguments: `none`
+
+Returns: `string`
 
 Example:
 ```lua
