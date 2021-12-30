@@ -120,13 +120,15 @@ end
 
 Description:
 
-Arguments:
+Gets the current map information for the player.
 
-Returns:
+Arguments: `none`
+
+Returns: `number, number, number`
 
 Example:
 ```lua
-
+local mapid, tilex, tiley = ni.backend.GetMapInfo();
 ```
 
 ## BestLocation
