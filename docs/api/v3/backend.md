@@ -325,6 +325,7 @@ Arguments:
 
 Returns:
 - On fail: `nil, string`
+- On success: `string`
 
 Example:
 ```lua
@@ -453,9 +454,29 @@ Example:
 
 Description:
 
+Calculates the distance between tokens or points.
+
 Arguments:
+- **targeta** `token|guid` _required_
+- **targetb** `token|guid` _required_
+
+Arguments (overload #1):
+- **x1** `number` _required_
+- **y1** `number` _required_
+- **x2** `number` _required_
+- **y2** `number` _required_
+
+Arguments (overload #2):
+- **x1** `number` _required_
+- **y1** `number` _required_
+- **z1** `number` _required_
+- **x2** `number` _required_
+- **y2** `number` _required_
+- **z2** `number` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `number`
 
 Example:
 ```lua
@@ -466,9 +487,13 @@ Example:
 
 Description:
 
-Arguments:
+Turns the player to a token, or away from.
 
-Returns:
+Arguments:
+- **target** `token|guid` _required_
+- **turn_away** `boolean` _optional_
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -479,9 +504,14 @@ Example:
 
 Description:
 
+Gets the GUID of the objects creator.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `guid [string]`
 
 Example:
 ```lua
@@ -492,9 +522,11 @@ Example:
 
 Description:
 
-Arguments:
+Stops the players movement.
 
-Returns:
+Arguments: `none`
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -505,9 +537,14 @@ Example:
 
 Description:
 
+Gets the dynamic flags for a unit.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `boolean` x9
 
 Example:
 ```lua
@@ -518,9 +555,14 @@ Example:
 
 Description:
 
+Gets the flags for a unit.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `boolean` x32
 
 Example:
 ```lua
@@ -531,9 +573,14 @@ Example:
 
 Description:
 
+Gets the creature type of a unit.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `number`
 
 Example:
 ```lua
@@ -544,9 +591,14 @@ Example:
 
 Description:
 
+Gets the spell ID from a spell name.
+
 Arguments:
+- **spell** `string` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `number`
 
 Example:
 ```lua
@@ -557,9 +609,39 @@ Example:
 
 Description:
 
-Arguments:
+Performs a trace line between points to check if line of sight is present.
 
-Returns:
+Arguments:
+- **targeta** `token|guid` _required_
+- **targetb** `token|guid` _required_
+- **hit_flags** `number` _optional; default: HitTestGroundAndStructures_
+
+Arguments (overload):
+- **x1** `number` _required_
+- **y1** `number` _required_
+- **z1** `number` _required_
+- **x2** `number` _required_
+- **y2** `number` _required_
+- **z2** `number` _required_
+- **hit_flags** `number` _optional; default: HitTestGroundAndStructures_
+
+Returns: `success [boolean], intersection_x [number], intersection_y [number], intersection_z [number]`
+
+Notes:
+
+Hit flags are a number. When combining multiple options, it is a bitwise or operation. Default flags:
+```
+HitTestNothing = 0x0,
+HitTestBoundingModels = 0x1,
+HitTestWMO = 0x10,
+HitTestUnknown = 0x40,
+HitTestGround = 0x100,
+HitTestLiquid = 0x10000,
+HitTestUnknown2 = 0x20000,
+HitTestMovableObjects = 0x100000,
+HitTestLOS = HitTestWMO | HitTestBoundingModels | HitTestMovableObjects,
+HitTestGroundAndStructures = HitTestLOS | HitTestGround
+```
 
 Example:
 ```lua
@@ -570,9 +652,14 @@ Example:
 
 Description:
 
+Gets the pointer for an object.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `pointer [number], hex_pointer [string]`
 
 Example:
 ```lua
@@ -583,9 +670,11 @@ Example:
 
 Description:
 
-Arguments:
+Gets the games base address.
 
-Returns:
+Arguments: `none`
+
+Returns: `pointer [number], hex_pointer [string]`
 
 Example:
 ```lua
@@ -596,9 +685,14 @@ Example:
 
 Description:
 
+Gets the GUID of an objects transport if it exists.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `guid [string]`
 
 Example:
 ```lua
@@ -609,9 +703,14 @@ Example:
 
 Description:
 
+Gets the objects facing radians.
+
 Arguments:
+- **target** `token|guid` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `number`
 
 Example:
 ```lua
@@ -622,9 +721,11 @@ Example:
 
 Description:
 
-Arguments:
+Sets the last hardware action as if a key was pressed. (Can prevent AFK)
 
-Returns:
+Arguments: `none`
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -635,22 +736,34 @@ Example:
 
 Description:
 
+Calls a function without causing the game taint to trigger (and the action blocked popup). Essentially a lua unlocker function for that call.
+
 Arguments:
+- **function** `string` _required_
+- ... `functions normal arguments`
 
 Returns:
+- On fail: `nil`
+- On success: The called functions regular returns
 
 Example:
 ```lua
-
+ni.backend.CallProtected("CastSpellByName", "Blizzard")
+ni.backend.CallProtected("RunMacroText", "print('hello')")
+ni.backend.CallProtected("InteractUnit", UnitGUID("target"))
 ```
 
 ## GetDirectoryContents
 
 Description:
 
+Gets the contents of a folder directory.
+
 Arguments:
 
 Returns:
+- On fail: `nil, err_msg [string]`
+- On success: `table` _keys: number, values: table; subkeys: path [string], is_dir [boolean]_
 
 Example:
 ```lua
@@ -661,9 +774,25 @@ Example:
 
 Description:
 
+Gets a path from start to end point with navigation mesh.
+
 Arguments:
+- **x1** `number` _required_
+- **y1** `number` _required_
+- **z1** `number` _required_
+- **x2** `number` _required_
+- **y2** `number` _required_
+- **z2** `number` _required_
+- **includes** `number` _optional_
+- **excludes** `number` _optional_
 
 Returns:
+- On fail: `nil`
+- On success: `table` _keys: number, values: table; subkeys: x [number], y [number], z [number]_
+
+Notes:
+
+This function currently requires a folder included in the base folder with the navigation mesh files for it to use.
 
 Example:
 ```lua
@@ -674,9 +803,11 @@ Example:
 
 Description:
 
-Arguments:
+Frees the maps loaded in memory.
 
-Returns:
+Arguments: `none`
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -687,9 +818,15 @@ Example:
 
 Description:
 
+Gets the objects descriptor value.
+
 Arguments:
+- **target** _required_
+- **descriptor** _required_
 
 Returns:
+- On fail: `nil`
+- On success: `number`
 
 Example:
 ```lua
@@ -700,9 +837,12 @@ Example:
 
 Description:
 
-Arguments:
+Sets the players creature tracking value to track certain creatures on the minimap.
 
-Returns:
+Arguments:
+- **value** `number` _required_
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -713,9 +853,12 @@ Example:
 
 Description:
 
-Arguments:
+Sets the players resource tracking value to track certain resources on the minimap.
 
-Returns:
+Arguments:
+- **value** `number` _required_
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -726,9 +869,21 @@ Example:
 
 Description:
 
+Performs a web request.
+
 Arguments:
+- **url** `string` _required_
+- **data** `string` _default: ""_
+- **post** `boolean` _required_
+- **callback** `function`
 
 Returns:
+- On callback fail: `err_msg [string]`
+- On success: `nil`
+
+Notes:
+
+The callback function takes 2 arguments. The first is the response code (200, 404, etc.) and the second is the response content.
 
 Example:
 ```lua
@@ -739,9 +894,16 @@ Example:
 
 Description:
 
+Reads client memory with the specified type.
+
 Arguments:
+- **type** `string` _required_
+- **address** `number` _required_
+- **...** `numbers` _optional_
 
 Returns:
+- On fail: `nil`
+- On success: `value [type]`
 
 Example:
 ```lua
@@ -752,9 +914,12 @@ Example:
 
 Description:
 
-Arguments:
+Executes the OS open command.
 
-Returns:
+Arguments:
+- **path** `string` _required_
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -765,9 +930,11 @@ Example:
 
 Description:
 
-Arguments:
+Toggles the console window open and closed.
 
-Returns:
+Arguments: `none`
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -778,9 +945,12 @@ Example:
 
 Description:
 
-Arguments:
+Registers a frame to be protected from enumeration with the games Lua functions.
 
-Returns:
+Arguments:
+- **frame** `frame` _required_
+
+Returns: `boolean`
 
 Example:
 ```lua
@@ -791,9 +961,16 @@ Example:
 
 Description:
 
-Arguments:
+Registers a callback to be called when a packet is received.
 
-Returns:
+Arguments:
+- **callback** `function` _required_
+
+Returns: `boolean`
+
+Notes:
+
+The callback function is called when the client receives a packet. The first argument to this function is the packet opcode, and the second is a table of the packet data bytes.
 
 Example:
 ```lua
@@ -804,9 +981,11 @@ Example:
 
 Description:
 
-Arguments:
+Gets a unique identifier of the users PC that is a base64 encoded string.
 
-Returns:
+Arguments: `none`
+
+Returns: `string`
 
 Example:
 ```lua
@@ -817,9 +996,14 @@ Example:
 
 Description:
 
+Gets the original function for the specified string. Can be used to override hooksecurefunc and overwrite hooks on the client.
+
 Arguments:
+- **function** `string` _required_
 
 Returns:
+- On fail: `nil`
+- On success: `function`
 
 Example:
 ```lua
@@ -830,9 +1014,12 @@ Example:
 
 Description:
 
-Arguments:
+Raises a lua error with the specified message.
 
-Returns:
+Arguments:
+- **message** `string` _required_
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -843,9 +1030,14 @@ Example:
 
 Description:
 
-Arguments:
+Makes a message box pop up.
 
-Returns:
+Arguments:
+- **message** `string` _required_
+- **title** `string` _optional; default: ""_
+- **icon** `number` _optional; default: 0_
+
+Returns: `nil`
 
 Example:
 ```lua
