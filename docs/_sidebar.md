@@ -13,14 +13,18 @@
 
 - Api
 
-  - [Spell](api/spell.md)
-  - [Unit](api/unit.md)
-  - [Player](api/player.md)
-  - [Power](api/power.md)
-  - [Rune](api/rune.md)
-  - [Vars](api/vars.md)
-  - [Object Manager](api/object-manager.md)
-  - [Members](api/members.md)
-  - [Debug](api/debug.md)
-  - [Generic](api/generic.md)
-  - [Memory](api/memory.md)
+  - [Backend](api/v3/backend.md)
+
+- Deprecated
+
+  - [Spell](api/deprecated/spell.md)
+  - [Unit](api/deprecated/unit.md)
+  - [Player](api/deprecated/player.md)
+  - [Power](api/deprecated/power.md)
+  - [Rune](api/deprecated/rune.md)
+  - [Vars](api/deprecated/vars.md)
+  - [Object Manager](api/deprecated/object-manager.md)
+  - [Members](api/deprecated/members.md)
+  - [Debug](api/deprecated/debug.md)
+  - [Generic](api/deprecated/generic.md)
+  - [Memory](api/deprecated/memory.md)
