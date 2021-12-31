@@ -1000,10 +1000,15 @@ Gets the original function for the specified string. Can be used to override hoo
 
 Arguments:
 - **function** `string` _required_
+- **binary_name** `string` _optional_
 
 Returns:
 - On fail: `nil`
 - On success: `function`
+
+Notes:
+
+Not all binary functions are registered with the function string passed. Some may require the binary name specified. I.E. tinsert in the binary with the corresponding function is just insert.
 
 Example:
 ```lua
