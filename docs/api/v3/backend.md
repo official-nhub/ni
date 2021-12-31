@@ -145,11 +145,11 @@ Arguments:
 - **target** `token|guid` _required_
 - **distance** `number` _required_
 - **radius** `number` _required_
-- **friendly** `boolean` _optional; default: false_
-- **increment** `number` _optional; default: 1.0_
-- **heightmax** `number` _optional; default: 20.0_
-- **callback** `function` _optional_
 - **score** `number` _optional; default: 300.0_
+- **callback** `function` _optional_
+- **friendly** `boolean` _optional; default: false_
+- **heightmax** `number` _optional; default: 10.0_
+- **maxdistance** `number` _optional; default: 40.0_
 
 Returns:
 - On fail: `nil`
@@ -161,12 +161,12 @@ The callback function is to help assess each objects score value. The lower a to
 
 Example:
 ```lua
-local x, y, z = ni.backend.BestLocation("target", 10, 8, false, 1, 10, function(guid)
+local x, y, z = ni.backend.BestLocation("target", 10, 8, 300, function(guid)
 	if ni.unit.debuff(guid, "Something bad") then
 		return -1000 --Simulate an avoid this mob area
 	end
 	return 100
-end);
+end, true);
 if x then
 	print(string.format("Best location at %d %d %d", x, y, z))
 end
