@@ -1,4 +1,4 @@
-# ui
+# UI
 
 > Functions for creating UI elements on the overlay.
 
