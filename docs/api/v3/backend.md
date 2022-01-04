@@ -74,7 +74,6 @@ Description:
 Registers a Lua function to be performed as a callback on mouse or keyboard actions.
 
 Arguments:
-- **table** `table` _required_
 - **func** `function` _required_
 
 Returns:
@@ -84,18 +83,18 @@ Returns:
 Example:
 ```lua
 local keys = {}
-local function OnKeyHandler(self, keyType, key)
+local function OnKeyHandler(keyType, key)
     if key == 70 then --f key
         if keyType == 256 then --key down
-            self[key] = true
+            keys[key] = true
         elseif keyType == 257 then --key up
-			self[key] = false
+			keys[key] = false
         end
         return true
     end
 	return false
 end
-ni.backend.RegisterCallback(keys, OnKeyHandler)
+ni.backend.RegisterCallback(OnKeyHandler)
 ```
 
 ## Auras
