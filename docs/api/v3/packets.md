@@ -97,8 +97,9 @@ Example:
 Description:
 
 Arguments: 
+- **guid** `string` _packs a guid for packet that requires a packed guid_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -110,9 +111,11 @@ Example:
 
 Description:
 
-Arguments: 
+Arguments:
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -125,8 +128,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -139,8 +144,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `string` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -153,8 +160,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -167,8 +176,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -181,8 +192,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -195,6 +208,8 @@ Example:
 Description:
 
 Arguments: 
+- **value** `string` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
 Returns: 
 
@@ -209,8 +224,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -223,8 +240,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -237,8 +256,10 @@ Example:
 Description:
 
 Arguments: 
+- **value** `number` _required_
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `nil`
 
 Example:
 ```lua
@@ -250,9 +271,11 @@ Example:
 
 Description:
 
+Gets the current read index position.
+
 Arguments: `none`
 
-Returns: `nil`
+Returns: `number`
 
 Example:
 ```lua
@@ -264,9 +287,12 @@ Example:
 
 Description:
 
-Arguments: 
+Sets the current read index position.
 
-Returns: 
+Arguments: 
+- **value** `number` _required_
+
+Returns: `nil`
 
 Example:
 ```lua
@@ -278,9 +304,11 @@ Example:
 
 Description:
 
-Arguments: 
+Returns the packet bytes as a table.
 
-Returns: 
+Arguments: `none`
+
+Returns: `table`
 
 Example:
 ```lua
@@ -292,9 +320,9 @@ Example:
 
 Description:
 
-Arguments: 
+Arguments: `none`
 
-Returns: 
+Returns: `guid [hex string]`
 
 Example:
 ```lua
@@ -307,8 +335,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -321,8 +350,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -334,9 +364,10 @@ Example:
 
 Description:
 
-Arguments: 
+Arguments:
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [hex string]`
 
 Example:
 ```lua
@@ -349,8 +380,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -363,8 +395,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -377,8 +410,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -391,8 +425,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [hex string]`
 
 Example:
 ```lua
@@ -405,8 +440,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -419,8 +455,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
@@ -433,8 +470,9 @@ Example:
 Description:
 
 Arguments: 
+- **byte_swap** `boolean` _optional; default: false_
 
-Returns: 
+Returns: `value [number]`
 
 Example:
 ```lua
