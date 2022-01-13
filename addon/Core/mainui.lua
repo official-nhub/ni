@@ -231,13 +231,60 @@ local primary_text = CreateText(frame, Localization.Primary, 0, -18, 0.1, 0.5, 0
 local secondary_text = CreateText(frame, Localization.Secondary, 0, -63, 0.1, 0.5, 0.8, 1);
 local generic_text = CreateText(frame, Localization.Generic, 0, -108, 0.1, 0.5, 0.8, 1);
 
-local function GetFilename(file)
-	return file:match("^.*\\(.*).lua$") or file:match("^.*\\(.*).enc$") or file:match("^.*\\(.*).out$") or file
+local function GetFilename(path, strip)
+	if type(path) == "string" then
+		local start, finish = path:find('[%w%s!-={-|]+[_%.].+')
+		if not start or not finish then
+			return nil
+		end
+		result = path:sub(start,#path)
+		if strip and result then
+			return result:match("(.+)%..+$")
+		end
+		return result
+	end
 end
+
+local function GetFileExtension(path)
+	return path:match("^.+(%..+)$")
+end
+
+local function GetProfiles()
+	local uc, ti = ni.backend.GetFunction("UnitClass"), ni.backend.GetFunction("tinsert", "insert")
+	if not uc or not ti then
+		ni.backend.Error("Unable to get cached functions for GetProfiles")
+	end
+	local class = select(2, uc("player")):lower()
+	local dir = ni.backend.GetBaseFolder()
+	local contents = ni.backend.GetDirectoryContents(dir.."addon\\Rotations\\") or {}
+	local files = {}
+	for i = 1, #contents do
+		if contents[i].is_dir and string.match(contents[i].path:lower(), class) then
+			local sub_contents = ni.backend.GetDirectoryContents(contents[i].path) or {}
+			local processed = false
+			for i = 1, #sub_contents do
+				if not sub_contents[i].is_dir then
+					local extension = GetFileExtension(sub_contents[i].path)
+					if extension == ".enc" or extension == ".lua" then
+						ti(files, { title = GetFilename(sub_contents[i].path, true), filename = GetFilename(sub_contents[i].path), path = sub_contents[i].path})
+						if not processed then
+							processed = true
+						end
+					end
+				end
+			end
+			if processed then
+				break
+			end
+		end
+	end
+	return files
+end
+
 local dir = ni.backend.GetBaseFolder()
-local profiles = ni.backend.GetDirectoryContents(dir.."addon\\Rotations\\") or {}
+local profiles = GetProfiles();
 tinsert(profiles, 1, Localization.None);
-local generic_profiles = ni.backend.GetDirectoryContents(dir.."addon\\Rotations\\") or {}
+local generic_profiles = GetProfiles();
 tinsert(generic_profiles, 1, Localization.None);
 
 local ddm_name = ni.utils.GenerateRandomName();
@@ -252,7 +299,7 @@ UIDropDownMenu_Initialize(dropdownmenu, function(self, level)
 	local index = 0;
 	for k, v in ipairs(profiles) do
 		index = index + 1;
-		local file = GetFilename(v);
+		local file = v.title;
 		local checked = false;
 		if ni.vars.profiles.primary == file then
 			primary = file;
@@ -287,7 +334,7 @@ UIDropDownMenu_Initialize(dropdownmenu2, function(self, level)
 	local index = 0;
 	for k, v in ipairs(profiles) do
 		index = index + 1;
-		local file = GetFilename(v);
+		local file = v.title;
 		local checked = false;
 		if ni.vars.profiles.secondary == file then
 			secondary = file;
