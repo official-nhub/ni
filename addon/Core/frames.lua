@@ -96,6 +96,20 @@ local function isspelltoignore(spellname)
 	return false;
 end
 
+local function UpdateUnitTables()
+	ni.enemies = {}
+	ni.friends = {}
+	local objects = ni.backend.GetObjects()
+	for i=1, #objects do
+			if UnitIsEnemy(objects[i].guid,"player") then
+					tinsert(ni.enemies, objects[i])
+			end
+			if UnitIsFriend(objects[i].guid,"player") then
+					tinsert(ni.friends, objects[i])
+			end
+	end
+end
+
 local events = {};
 
 local delays = {};
@@ -264,6 +278,8 @@ ni.frames.OnUpdate = function(self, elapsed)
 		totalelapsed = 0;
 		return true
 	end
+
+	UpdateUnitTables()
 
 	if select(11, ni.player.debuff(9454)) == 9454 then
 		return true
