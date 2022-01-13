@@ -76,36 +76,38 @@ ni.gettanks = function()
 	if ni.vars.units.mainTankEnabled and ni.vars.units.offTankEnabled then
 		return ni.vars.units.mainTank, ni.vars.units.offTank
 	end
-	table.wipe(tanks);
+	if tanks then table.wipe(tanks) end
 	for i = 1, #ni.members do
 		if ni.members[i].istank then
-			tinsert(tanks, {unit = ni.members[i].unit, health = UnitHealthMax(ni.members[i].unit)})
+			ni.utils.tinsert(tanks, {unit = ni.members[i].unit, health = UnitHealthMax(ni.members[i].unit)})
 		end
 	end
-	if #tanks > 1 then
-		table.sort(
-			tanks,
-			function(x, y)
-				return x.health > y.health
+	if tanks then
+		if #tanks > 1 then
+			table.sort(
+				tanks,
+				function(x, y)
+					return x.health > y.health
+				end
+			)
+			if ni.vars.units.mainTankEnabled or ni.vars.units.offTankEnabled then
+				if ni.vars.units.offTankEnabled and not ni.vars.units.mainTankEnabled then
+					return tanks[1].unit, ni.vars.units.offTank
+				elseif ni.vars.units.mainTankEnabled and not ni.vars.units.offTankEnabled then
+					return ni.vars.units.mainTank, tanks[1].unit
+				end
+			else
+				return tanks[1].unit, tanks[2].unit
 			end
-		)
-		if ni.vars.units.mainTankEnabled or ni.vars.units.offTankEnabled then
+		end
+		if #tanks == 1 then
 			if ni.vars.units.offTankEnabled and not ni.vars.units.mainTankEnabled then
 				return tanks[1].unit, ni.vars.units.offTank
 			elseif ni.vars.units.mainTankEnabled and not ni.vars.units.offTankEnabled then
 				return ni.vars.units.mainTank, tanks[1].unit
+			else
+				return tanks[1].unit, "focus"
 			end
-		else
-			return tanks[1].unit, tanks[2].unit
-		end
-	end
-	if #tanks == 1 then
-		if ni.vars.units.offTankEnabled and not ni.vars.units.mainTankEnabled then
-			return tanks[1].unit, ni.vars.units.offTank
-		elseif ni.vars.units.mainTankEnabled and not ni.vars.units.offTankEnabled then
-			return ni.vars.units.mainTank, tanks[1].unit
-		else
-			return tanks[1].unit, "focus"
 		end
 	end
 	if ni.vars.units.mainTankEnabled then

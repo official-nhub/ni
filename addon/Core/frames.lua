@@ -279,8 +279,6 @@ ni.frames.OnUpdate = function(self, elapsed)
 		return true
 	end
 
-	UpdateUnitTables()
-
 	if select(11, ni.player.debuff(9454)) == 9454 then
 		return true
 	end
@@ -404,6 +402,7 @@ ni.frames.OnUpdate = function(self, elapsed)
 				ni.rotation.started = true
 			end
 			if ni.vars.profiles.useEngine then
+				UpdateUnitTables()
 				ni.members:updatemembers()
 			end
 			if ni.rotation.stopmod() then

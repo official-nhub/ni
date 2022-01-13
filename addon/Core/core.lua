@@ -55,75 +55,11 @@ local ni = ...
 
 ]] 
 
-local function GetFileExtension(path)
-	return path:match("^.+(%..+)$")
-end
-
-local function GetFilename(path, strip)
-    local start, finish = path:find('[%w%s!-={-|]+[_%.].+')
-	if not start or not finish then
-		return nil
-	end
-    result = path:sub(start,#path)
-	if strip and result then
-		return result:match("(.+)%..+$")
-	end
-	return result
-end
-
-local function GetProfiles()
-	local uc, ti = ni.backend.GetFunction("UnitClass"), ni.backend.GetFunction("tinsert", "insert")
-	if not uc or not ti then	
-		ni.backend.Error("Unable to get cached functions for GetProfiles")
-	end
-	local class = select(2, uc("player")):lower()
-	local dir = ni.backend.GetBaseFolder()
-	local contents = ni.backend.GetDirectoryContents(dir.."addon\\Rotations\\") or {}
-	local files = {}
-	for i = 1, #contents do
-		if contents[i].is_dir and string.match(contents[i].path:lower(), class) then
-			local sub_contents = ni.backend.GetDirectoryContents(contents[i].path) or {}
-			local processed = false
-			for i = 1, #sub_contents do
-				if not sub_contents[i].is_dir then
-					local extension = GetFileExtension(sub_contents[i].path)
-					if extension == ".enc" or extension == ".lua" then
-						ti(files, { title = GetFilename(sub_contents[i].path, true), filename = GetFilename(sub_contents[i].path), path = sub_contents[i].path})
-						if not processed then
-							processed = true
-						end
-					end
-				end
-			end
-			if processed then
-				break
-			end
-		end
-	end
-	return files
-end
-
-local function LoadProfile(entry)
-	local gbi = ni.backend.GetFunction("GetBuildInfo")
-	local _, err = ni.backend.ParseFile(entry.path, function(content)
-		local version = string.match(content, "--Version:%s*(%d*)")
-		if not version or version == select(4,gbi()) then
-			local result, err = ni.backend.LoadString(content, string.format("@%s", entry.filename))
-			if result then
-				result(ni)
-				return true
-			end
-			ni.backend.MessageBox(err, entry.filename, 0x10)
-			return false
-		end
-	end)
-end
-
 if not ni.loaded then
 
     local dir = ni.backend.GetBaseFolder()
     local function LoadCoreFile(entry)
-    local func, err = ni.backend.LoadFile(dir.."addon\\core\\"..entry)
+    local func, err = ni.backend.LoadFile(dir.."addon\\core\\"..entry, entry)
     if err then
     ni.backend.Error(err)
     else
@@ -150,7 +86,11 @@ if not ni.loaded then
 	for i = 1, #corefiles do
 	LoadCoreFile(corefiles[i])
 	end
-	
+	local profiles = ni.utils.getprofiles()
+
+	for i = 1, #profiles do
+		ni.utils.loadprofile(profiles[i])
+	end
    	ni.showstatus = function(str, enabled)
 		if enabled then
 			ni.frames.floatingtext:message("\124cff00ff00" .. str)
@@ -181,8 +121,10 @@ if not ni.loaded then
 			end
 		end
 		if ni.vars.profiles.enabled then
+
 			if ni.rotation.profile[str] then
 				if ni.rotation.profile[str].load then
+
 					ni.rotation.profile[str]:load();
 				end
 				if ni.rotation.profile[str].createGUI then
