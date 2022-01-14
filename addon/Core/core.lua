@@ -59,21 +59,20 @@ if not ni.loaded then
 
     local dir = ni.backend.GetBaseFolder()
     local function LoadCoreFile(entry)
-	    local func, err = ni.backend.LoadFile(dir.."addon\\core\\"..entry, entry)
-  	  if err then
-    		ni.backend.Error(err)
-    	else
+	local func, err = ni.backend.LoadFile(dir.."addon\\core\\"..entry, entry)
+	if err then
+    	ni.backend.Error(err)
+    else
     		func(ni)
     	end
-    end
-
+    end;
     LoadCoreFile("json.lua")
     local vars = ni.backend.GetContent(dir.."addon\\settings\\"..UnitName("player")..".json")
     if vars then
 	    ni.vars = ni.json.decode(vars)
     else
 	    LoadCoreFile("vars.lua")
-    end
+    end;
 
     ni.vars.profiles.enabled = false;
     ni.vars.profiles.genericenabled = false;
@@ -83,8 +82,8 @@ if not ni.loaded then
 	local corefiles = {"mwcrand.lua", "debug.lua", "memory.lua", "rotation.lua", "bootstrap.lua", "tables.lua", "drtracker.lua", "utils.lua", "frames.lua", "spell.lua", "power.lua", "rune.lua", "unit.lua", "player.lua", "healing.lua", "members.lua", "objectmanager.lua", "stopcastingtracker.lua", "timetodie.lua", "gui.lua", "mainui.lua", }
 	
 	for i = 1, #corefiles do
-	LoadCoreFile(corefiles[i])
-	end
+		LoadCoreFile(corefiles[i])
+	end;
 	
    	ni.showstatus = function(str, enabled)
 		if enabled then
@@ -92,7 +91,7 @@ if not ni.loaded then
 		else
 			ni.frames.floatingtext:message("\124cffff0000" .. str)
 		end
-	end
+	end;
 	ni.toggleprofile = function(str)
 		local unload = false;
 		if ni.vars.profiles.active == str then
@@ -129,7 +128,7 @@ if not ni.loaded then
 			ni.rotation.lastprofile = str;
 		end
 		ni.showstatus(str, ni.vars.profiles.enabled);
-	end
+	end;
 
 	ni.togglegeneric = function(str)
 		local unload = false;
@@ -167,23 +166,40 @@ if not ni.loaded then
 			ni.rotation.lastgeneric = str;
 		end
 		ni.showstatus(str, ni.vars.profiles.genericenabled);
-	end
+	end;
+
 
 	ni.showintstatus = function()
 		if ni.vars.profiles.interrupt then
-			ni.frames.floatingtext:message("Interrupts: \124cff00ff00Enabled")
+			if (GetLocale() == "ruRU") then
+				ni.frames.floatingtext:message("Прерывание: \124cff00ff00Включено")
+			else
+				ni.frames.floatingtext:message("Interrupts: \124cff00ff00Enabled")
+			end
 		else
-			ni.frames.floatingtext:message("Interrupts: \124cffff0000Disabled")
+			if (GetLocale() == "ruRU") then
+				ni.frames.floatingtext:message("Прерывание: \124cffff0000Выключено")
+			else			
+				ni.frames.floatingtext:message("Interrupts: \124cffff0000Disabled")
+			end
 		end
-	end
+	end;
 
 	ni.updatefollow = function(enabled)
 		if enabled then
-			ni.frames.floatingtext:message("Auto follow: \124cff00ff00Enabled")
+			if (GetLocale() == "ruRU") then
+				ni.frames.floatingtext:message("Авто следование: \124cff00ff00Включено")
+			else
+				ni.frames.floatingtext:message("Auto follow: \124cff00ff00Enabled")
+			end
 		else
-			ni.frames.floatingtext:message("Auto follow: \124cffff0000Disabled")
+			if (GetLocale() == "ruRU") then
+				ni.frames.floatingtext:message("Авто следование: \124cffff0000Выключено")
+			else		
+				ni.frames.floatingtext:message("Auto follow: \124cffff0000Disabled")
+			end
 		end
-	end
+	end;
 
 	ni.getspellidfromactionbar = function()
 		local focus = GetMouseFocus():GetName()
@@ -198,13 +214,13 @@ if not ni.loaded then
 				end
 			end
 		end
-	end
+	end;
 	ni.functionsregistered = function()
 		return ni.backend.ToggleConsole ~= nil
-	end
+	end;
 	ni.frames.main:SetScript("OnUpdate", ni.frames.OnUpdate);
 	ni.frames.main:SetScript("OnEvent", ni.frames.OnEvent);
 
 	ni.loaded = true
 
-end
+end;

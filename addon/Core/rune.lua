@@ -14,7 +14,7 @@ ni.rune.available = function()
 	end
 
 	return runesavailable
-end
+end;
 ni.rune.deathrunes = function()
 	local dr = 0;
 	for i = 1, 6 do
@@ -23,7 +23,7 @@ ni.rune.deathrunes = function()
 		end
 	end
 	return dr;
-end
+end;
 ni.rune.cd = function(r)
 	local runesoncd = 0
 	local runesoffcd = 0
@@ -40,16 +40,16 @@ ni.rune.cd = function(r)
 		end
 	end
 	return runesoncd, runesoffcd
-end
+end;
 ni.rune.deathrunecd = function()
 	return ni.rune.cd(4)
-end
+end;
 ni.rune.frostrunecd = function()
 	return ni.rune.cd(3)
-end
+end;
 ni.rune.unholyrunecd = function()
 	return ni.rune.cd(2)
-end
+end;
 ni.rune.bloodrunecd = function()
 	return ni.rune.cd(1)
-end
+end;

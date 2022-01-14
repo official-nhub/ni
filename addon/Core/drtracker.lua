@@ -106,4 +106,4 @@ ni.drtracker.updateresettime = function()
 			end
 		end
 	end
-end
+end;

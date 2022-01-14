@@ -846,11 +846,12 @@ CreateDropDownText(mainsettings, Localization.Follow, 0, -290);
 CreateEditBox(mainsettings, 0, -310, "follow");
 CreateKeyDropDown(mainsettings, keys, 0, -335, "follow");
 
-CreateDropDownText(mainsettings, Localization.GlobalDev, 0, -365);
+
+CreateDropDownText(mainsettings, Localization.GlobalDev, 0, -380);
 local globaledit = CreateFrame("EditBox", nil, mainsettings);
 globaledit:SetHeight(20)
 globaledit:SetWidth(124);
-globaledit:SetPoint("TOP", mainsettings, 0, -385)
+globaledit:SetPoint("TOP", mainsettings, 0, -400)
 globaledit:SetFontObject("GameFontHighlight");
 globaledit:SetAutoFocus(false);
 globaledit:SetJustifyH("CENTER");
@@ -874,7 +875,7 @@ end);
 globaledit:SetText(ni.vars.global or "");
 globaledit:Show();
 
-CreateText(mainsettings, Localization.Dev, 0, -407, 0.8, 0.1, 0.1, 1);
+CreateText(mainsettings, Localization.Dev, 0, -365, 0.8, 0.1, 0.1, 1);
 
 local reloadbutton = CreateFrame("BUTTON", nil, mainsettings, "UIPanelButtonTemplate");
 reloadbutton:SetWidth(96);
