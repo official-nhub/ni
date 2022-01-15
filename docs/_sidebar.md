@@ -16,6 +16,7 @@
   - [Backend](api/v3/backend.md)
   - [Packets](api/v3/packets.md)
   - [UI](api/v3/ui.md)
+  - [utilities](api/v3/utilities.md)
 
 - Deprecated
 
