@@ -8,6 +8,36 @@ Parameters:
 Returns:
 - **exists** `boolean`
 
+### ni.object.type (object)
+
+Gets the objects type.
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **type** `number`
+
+### ni.object.is_player (object)
+
+Gets if the object is a player
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_player** `boolean`
+
+### ni.object.is_unit (object)
+
+Gets if the object is a unit
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_unit** `boolean`
+
 ### ni.object.location (token)
 
 Gets the object location information

@@ -64,3 +64,20 @@ Sets the players target to the token passed
 Parameters:
 - **target** `string`
 
+### ni.player.interact (target)
+
+Interacts with the token passed
+
+Parameters:
+- **target** `string`
+
+### ni.player.has_glyph (id)
+
+Checks if the player has the current glyph
+
+Parameters:
+- **id** `number`
+
+Returns:
+- **has_glyph** `boolean`
+

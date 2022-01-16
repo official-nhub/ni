@@ -83,6 +83,72 @@ Parameters:
 Returns:
 - **exists** `boolean`
 
+### ni.unit.guid (target)
+
+Gets the targets guid
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **guid** `string`
+
+### ni.unit.short_guid (target)
+
+Gets the short guid
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **short_guid** `string`
+
+### ni.unit.health (target)
+
+Gets the targets current health
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **health** `number`
+
+### ni.unit.health_max (target)
+
+Gets the targets max health
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **max_health** `number`
+
+### ni.unit.health_deficit (target)
+
+Gets the targets health deficit
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **deficit** `number`
+
+### ni.unit.health_percent (target)
+
+Gets the targets health percent
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **health_percent** `number`
+
+### ni.unit.hp (target)
+
+Shorthand function for health_percent.
+
+See [ni.unit.health_percent](#niunithealth_percent-target)
+
 ### ni.unit.info (target)
 
 Gets the information of the specified target
@@ -94,8 +160,28 @@ Returns:
 - **x** `number`
 - **y** `number`
 - **z** `number`
-- **facing** `number`
+- **type** `number`
 - **target** `string`
+- **height** `number`
+
+### ni.unit.target (target)
+
+Gets the units target
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **guid** `string`
+
+### ni.unit.height (target)
+
+Gets the units height
+
+Parameters:
+- **target** `string`
+
+Returns:
 - **height** `number`
 
 ### ni.unit.location (target)
@@ -204,6 +290,27 @@ Parameters:
 
 Returns:
 - **creature_type** `number`
+
+### ni.unit.is_totem (target)
+
+Checks if the unit is a totem
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_totem** `boolean`
+
+### ni.unit.threat (target_a, target_b)
+
+Checks the units threat to a target
+
+Parameters:
+- **target_a** `string`
+- **target_b** `string`
+
+Returns:
+- **threat** `number`
 
 ### ni.unit.los (target_a, target_b[, hit_flags])
 
