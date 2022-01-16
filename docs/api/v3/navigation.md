@@ -2,18 +2,18 @@
 
 Gets a path from start to end point with navigation mesh.
 
- Parameters:
- - **x1** `number`
- - **y1** `number`
- - **z1** `number`
- - **x2** `number`
- - **y2** `number`
- - **z2** `number`
- - **includes** `number`
- - **excludes** `number`
+Parameters:
+- **x1** `number`
+- **y1** `number`
+- **z1** `number`
+- **x2** `number`
+- **y2** `number`
+- **z2** `number`
+- **includes** `number`
+- **excludes** `number`
 
- Returns:
- - **path** `xyz table`
+Returns:
+- **path** `xyz table`
 
 ### ni.navigation.free_maps ()
 
@@ -22,7 +22,7 @@ Frees the maps loaded in memory.
 ### xyz
 
 Table keys:
- - **x** `number`
- - **y** `number`
- - **z** `number`
+- **x** `number`
+- **y** `number`
+- **z** `number`
 

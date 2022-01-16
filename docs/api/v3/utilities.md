@@ -2,80 +2,72 @@
 
 Gets the base path for ni, which is the location the loader resides.
 
- Returns:
- - **path** `string`
+Returns:
+- **path** `string`
 
 ### ni.utilities.split_path (path)
 
 Split the path into an entry table.
 
- Returns:
- - [`entry table`](#entry)
+Returns:
+- [`entry table`](#entry)
 
 ### ni.utilities.load_file (path[, chunk[, parser]])
 
 This function will load the selected file into the lua state.
 
- Returns:
- - **success** `boolean`
- - **error** `string`
+Returns:
+- **success** `boolean`
+- **error** `string`
 
 ### ni.utilities.load_entry (entry[, parser])
 
-Loads the entry into the lua state
-
- Returns:
- - **success** `boolean`
- - **error** `string`
+Loads the entry into the lua state Returns:
+- **success** `boolean`
+- **error** `string`
 
 ### ni.utilities.get_contents (directory)
 
-Gets contents from directory
-
- Returns:
- - **content** `content table`
- - **error** `string`
+Gets contents from directory Returns:
+- **content** `content table`
+- **error** `string`
 
 ### ni.utilities.get_folders (directory)
 
-Gets the folders within a directory
-
- Returns:
- - **folders** `string table`
- - **error** `string`
+Gets the folders within a directory Returns:
+- **folders** `string table`
+- **error** `string`
 
 ### ni.utilities.get_entries (directory)
 
-Gets entries from directory
-
- Returns:
- - **entries** `entry table`
+Gets entries from directory Returns:
+- **entries** `entry table`
 
 ### ni.utilities.table_contains_key (table, key)
 
 Checks if a table contains a key.
 
- Returns:
- - **contains** `boolean`
+Returns:
+- **contains** `boolean`
 
 ### ni.utilities.table_contains_value (table, value)
 
 Checks if a table contains a value.
 
- Returns:
- - **contains** `boolean`
+Returns:
+- **contains** `boolean`
 
 ### entry
 
 Table keys:
- - **extension** `string`
- - **filename** `string`
- - **stem** `string`
- - **path** `string`
+- **extension** `string`
+- **filename** `string`
+- **stem** `string`
+- **path** `string`
 
 ### content
 
 Table keys:
- - **path** `string`
- - **is_directory** `boolean`
+- **path** `string`
+- **is_directory** `boolean`
 

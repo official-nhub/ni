@@ -2,42 +2,42 @@
 
 Moves the player to the token or coordinates.
 
- Parameters:
- - **target** `token|guid`
+Parameters:
+- **target** `token|guid`
 
- Or
- - **x** `number`
- - **y** `number`
- - **z** `number`
+Or
+- **x** `number`
+- **y** `number`
+- **z** `number`
 
 ### ni.player.click_at (...)
 
 Clicks at the location of the target, or coordinates.
 
- Parameters:
- - **target** `token|guid`
+Parameters:
+- **target** `token|guid`
 
- Or
- - **x** `number`
- - **y** `number`
- - **z** `number`
+Or
+- **x** `number`
+- **y** `number`
+- **z** `number`
 
 ### ni.player.get_map_info ()
 
 Gets the current map information for the player.
 
- Returns:
- - **map_id** `number`
- - **tile_x** `number`
- - **tile_y** `number`
+Returns:
+- **map_id** `number`
+- **tile_x** `number`
+- **tile_y** `number`
 
 ### ni.player.look_at (target[, away])
 
 Turns the player to a target, or away from it.
 
- Parameters:
- - **target** `token|guid`
- - **away** `boolean`
+Parameters:
+- **target** `token|guid`
+- **away** `boolean`
 
 ### ni.player.stop_moving ()
 
@@ -47,13 +47,13 @@ Stops the players movement.
 
 Sets the player creature tracking value.
 
- Parameters:
- - **value** `number`
+Parameters:
+- **value** `number`
 
 ### ni.player.set_resource_tracking (value)
 
 Sets the player resource tracking value.
 
- Parameters:
- - **value** `number`
+Parameters:
+- **value** `number`
 
