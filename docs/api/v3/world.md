@@ -45,3 +45,12 @@ Returns:
 - **intersection_y** `number`
 - **intersection_z** `number`
 
+### ni.world.to_screen (x, y, z)
+
+Gets the xyz coordinates to screen coordinates
+
+Parameters:
+- **x** `number`
+- **y** `number`
+- **z** `number`
+

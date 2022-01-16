@@ -46,3 +46,17 @@ Returns:
 
 Sets the last hardware action as if a key was pressed.
 
+### ni.client.get_time ()
+
+Gets the computer uptime in seconds
+
+Returns:
+- **uptime** `number`
+
+### ni.client.run_text (text)
+
+Runs macro text securely
+
+Parameters:
+- **text** `string`
+

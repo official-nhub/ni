@@ -57,3 +57,10 @@ Sets the player resource tracking value.
 Parameters:
 - **value** `number`
 
+### ni.player.target (target)
+
+Sets the players target to the token passed
+
+Parameters:
+- **target** `string`
+
