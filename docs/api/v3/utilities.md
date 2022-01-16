@@ -30,20 +30,40 @@ Loads the entry into the lua state
 
 ### ni.utilities.get_contents (directory)
 
-Gets contents from directory  Returns:
+Gets contents from directory
+
+ Returns:
  - **content** `content table`
  - **error** `string`
 
 ### ni.utilities.get_folders (directory)
 
-Gets the folders within a directory  Returns:
+Gets the folders within a directory
+
+ Returns:
  - **folders** `string table`
  - **error** `string`
 
 ### ni.utilities.get_entries (directory)
 
-Gets entries from directory  Returns:
+Gets entries from directory
+
+ Returns:
  - **entries** `entry table`
+
+### ni.utilities.table_contains_key (table, key)
+
+Checks if a table contains a key.
+
+ Returns:
+ - **contains** `boolean`
+
+### ni.utilities.table_contains_value (table, value)
+
+Checks if a table contains a value.
+
+ Returns:
+ - **contains** `boolean`
 
 ### entry
 

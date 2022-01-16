@@ -13,10 +13,12 @@
 
 - Api
 
+  - [utilities](api/v3/utilities.md)
+  - [input](api/v3/input.md)
+  - [player](api/v3/player.md)
   - [Backend](api/v3/backend.md)
   - [Packets](api/v3/packets.md)
   - [UI](api/v3/ui.md)
-  - [utilities](api/v3/utilities.md)
 
 - Deprecated
 
