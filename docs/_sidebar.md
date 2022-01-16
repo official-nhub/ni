@@ -19,7 +19,7 @@
   - [client](api/v3/client.md)
   - [world](api/v3/world.md)
   - [navigation](api/v3/navigation.md)
-  - [bags](api/v3/navigation.md)
+  - [bags](api/v3/bags.md)
   - [object](api/v3/object.md)
   - [unit](api/v3/unit.md)
   - [player](api/v3/player.md)
