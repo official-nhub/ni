@@ -147,7 +147,7 @@ Returns:
 
 Shorthand function for health_percent.
 
-See [ni.unit.health_percent](#niunithealth_percent-target)
+See [ni.unit.health_percent](#ni.unit.health_percent (target))
 
 ### ni.unit.info (target)
 
@@ -219,13 +219,13 @@ Parameters:
 Returns:
 - **behind** `boolean`
 
-### ni.unit.has_aura (target, id)
+### ni.unit.has_aura (target, aura)
 
-Checks if a target has a specific aura id.
+Checks if a target has a specific aura id or name.
 
 Parameters:
 - **target** `string`
-- **id** `number`
+- **aura** `number or string`
 
 Returns:
 - **has_aura** `boolean`
@@ -368,6 +368,94 @@ Parameters:
 
 Returns:
 - **descriptor** `number`
+
+### ni.unit.melee_range (target_a, target_b)
+
+Gets the melee range between two units
+
+Parameters:
+- **target_a** `string`
+- **target_b** `string`
+
+Returns:
+- **range** `number`
+
+### ni.unit.in_melee (target_a, target_b)
+
+Checks if unit is in melee range of another target
+
+Parameters:
+- **target_a** `string`
+- **target_b** `string`
+
+Returns:
+- **in_melee** `boolean`
+
+### ni.unit.casting (target)
+
+Gets the casting information for the specified target
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **...**
+
+Notes:
+See the returns for UnitCastingInfo
+
+### ni.unit.is_casting (target)
+
+Gets if the target is casting currently
+
+Parameters:
+- **target**
+
+Returns:
+- **casting** `boolean`
+
+### ni.unit.casting_percent (target)
+
+Gets the targets casting percentage completed
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **percent_complete** `number`
+
+### ni.unit.channel (target)
+
+Gets the channel information for the specified target
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **...**
+
+Notes:
+See the returns for UnitChannelInfo
+
+### ni.unit.is_channeling (target)
+
+Gets if the target is channeling currently
+
+Parameters:
+- **target**
+
+Returns:
+- **channeling** `boolean`
+
+### ni.unit.channel_percent (target)
+
+Gets the targets channel percentage completed
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **percent_complete** `number`
 
 ### aura
 
