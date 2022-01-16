@@ -29,7 +29,9 @@ Returns:
 
 ### ni.unit.best_helpful_location (target, distance, radius[, score[, callback[, height_max[, max_distance]]]])
 
-Wrapper for best_location for friendly target Parameters:
+Wrapper for best_location for friendly target
+
+Parameters:
 - **target** `token|guid`
 - **distance** `number`
 - **radius** `number`
@@ -45,7 +47,9 @@ Returns:
 
 ### ni.unit.best_damage_location (target, distance, radius[, score[, callback[, height_max[, max_distance]]]])
 
-Wrapper for best_location for enemy target Parameters:
+Wrapper for best_location for enemy target
+
+Parameters:
 - **target** `token|guid`
 - **distance** `number`
 - **radius** `number`
@@ -81,7 +85,9 @@ Returns:
 
 ### ni.unit.info (target)
 
-Gets the information of the specified target Parameters:
+Gets the information of the specified target
+
+Parameters:
 - **target** `string`
 
 Returns:
@@ -216,7 +222,9 @@ Returns:
 
 ### ni.unit.pointer (target)
 
-Gets the units pointer Parameters:
+Gets the units pointer
+
+Parameters:
 - **target** `string`
 
 Returns:
@@ -225,7 +233,9 @@ Returns:
 
 ### ni.unit.transport (target)
 
-Gets the units transport guid Parameters:
+Gets the units transport guid
+
+Parameters:
 - **target** `string`
 
 Returns:
@@ -233,7 +243,9 @@ Returns:
 
 ### ni.unit.facing (target)
 
-Gets the units facing in radians Parameters:
+Gets the units facing in radians
+
+Parameters:
 - **target** `string`
 
 Returns:
@@ -241,7 +253,9 @@ Returns:
 
 ### ni.unit.descriptor (target, index)
 
-Gets the unit descriptor value for the given index Parameters:
+Gets the unit descriptor value for the given index
+
+Parameters:
 - **target** `string`
 - **index** `number`
 

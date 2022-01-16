@@ -1,6 +1,8 @@
 ### ni.world.get_2d_distance (x1, y1, x2, y2)
 
-Calculates the distance between two 2D points Parameters:
+Calculates the distance between two 2D points
+
+Parameters:
 - **x1** `number`
 - **y1** `number`
 - **x2** `number`
@@ -11,7 +13,9 @@ Returns:
 
 ### ni.world.get_3d_distance (x1, y1, z1, x2, y2, z2)
 
-Calculates the distance between two 3D points Parameters:
+Calculates the distance between two 3D points
+
+Parameters:
 - **x1** `number`
 - **y1** `number`
 - **z1** `number`
