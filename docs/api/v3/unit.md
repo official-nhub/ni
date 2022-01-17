@@ -3,7 +3,7 @@
 Gets the auras on the specified target.
 
 Parameters:
-- **target** `token|guid`
+- **target** `string`
 
 Returns:
 - **auras** `aura table`
@@ -13,7 +13,7 @@ Returns:
 Gets the best location that meets the criteria passed.
 
 Parameters:
-- **target** `token|guid`
+- **target** `string`
 - **distance** `number`
 - **radius** `number`
 - **score** `number`
@@ -32,7 +32,7 @@ Returns:
 Wrapper for best_location for friendly target
 
 Parameters:
-- **target** `token|guid`
+- **target** `string`
 - **distance** `number`
 - **radius** `number`
 - **score** `number`
@@ -50,7 +50,7 @@ Returns:
 Wrapper for best_location for enemy target
 
 Parameters:
-- **target** `token|guid`
+- **target** `string`
 - **distance** `number`
 - **radius** `number`
 - **score** `number`
@@ -456,6 +456,129 @@ Parameters:
 
 Returns:
 - **percent_complete** `number`
+
+### ni.unit.is_dead_or_ghost (target)
+
+Gets if the target is dead or a ghost
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_dead_or_ghost** `boolean`
+
+### ni.unit.can_attack (target_a, target_b)
+
+Checks to see if target_a can attack target_b
+
+Parameters:
+- **target_a** `string`
+- **target_b** `string`
+
+Returns:
+- **unit_can_attack** `boolean`
+
+### ni.unit.power (target[, power_type])
+
+Gets the current power value for a unit
+
+Parmeters:
+- **target** `string`
+- **power_type** `string or number`
+
+Returns:
+- **current**
+
+### ni.unit.power_max (target[, power_type])
+
+Gets the max power value for a unit
+
+Parameters:
+- **target** `string`
+- **power_type** `string or number`
+
+Returns:
+- **max**
+
+### ni.unit.power_percent (target[, power_type])
+
+Gets the power percentage for a unit
+
+Parameters:
+- **target** `string`
+- **power_type** `string or number`
+
+Returns:
+- **percent**
+
+### ni.unit.power_deficit (target[, power_type])
+
+Gets the power deficit for a unit
+
+Parameters:
+- **target** `string`
+- **power_type** `string or number`
+
+Returns:
+- **deficit** `number`
+
+### ni.unit.buff (target, buff[, filter])
+
+Gets information about the buff on a unit
+
+Parameters:
+- **target** `string`
+- **buff** `number or string`
+- **filter** `string`
+
+Returns:
+- **...**
+
+Notes:
+See the returns for UnitBuff as this is a wrapper for that.
+
+### ni.unit.debuff (target, debuff[, filter])
+
+Gets information about the debuff on a unit
+
+Parameters:
+- **target** `string`
+- **debuff** `number or string`
+- **filter** `string`
+
+Returns:
+- **...**
+
+Notes:
+See the returns for UnitDebuff as this is a wrapper for that.
+
+### ni.unit.index_buff (target, index)
+
+Gets information about the buff on a unit by specific buff index.
+
+Parameters:
+- **target** `string`
+- **index** `number`
+
+Returns:
+- **...**
+
+Notes:
+See the returns for UnitBuff as this is a wrapper for that.
+
+### ni.unit.index_debuff (target, index)
+
+Gets information about the debuff on a unit by specific debuff index
+
+Parameters:
+- **target** `string`
+- **index** `number`
+
+Returns:
+- **...**
+
+Notes:
+See the returns for UnitDebuff as this is a wrapper for that.
 
 ### aura
 

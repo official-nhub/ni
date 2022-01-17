@@ -2,6 +2,9 @@
 
 Gets if a virtual key is down or up
 
+Parameters:
+- **key** `string`
+
 Returns:
 - **down** `boolean`
 
@@ -9,10 +12,14 @@ Returns:
 
 Registers a callback to the input main callback
 
-Returns:
-- **success** `boolean`
+Parameters:
+- **title** `string`
+- **func** `function`
 
 ### ni.input.unregister_callback (title)
 
 Unregister a callback to from the input main calllback
+
+Parameters:
+- **title** `string`
 
