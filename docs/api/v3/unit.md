@@ -281,6 +281,186 @@ This function will return 32 different values which are all booleans for the
 dynamic flags 1 - 32. (Flag titles may be different for expansions)
 I was being lazy, and didn't want to type out the 32 different returns.
 
+### ni.unit.can_perform_action (target)
+
+Checks if the unit can perform action
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **can_perform_action** `boolean`
+
+### ni.unit.is_not_attackable (target)
+
+Checks if the unit is not attackable
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_not_attackable** `boolean`
+
+### ni.unit.is_player_controlled (target)
+
+Checks if the unit is player controlled
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_player_controlled** `boolean`
+
+### ni.unit.is_preparation (target)
+
+Checks if the unit is preparation
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_preparation** `boolean`
+
+### ni.unit.is_looting (target)
+
+Checks if the unit is looting
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_looting** `boolean`
+
+### ni.unit.is_pet_in_combat (target)
+
+Checks if the unit is pet in combat
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_pet_in_combat** `boolean`
+
+### ni.unit.is_pvp_flagged (target)
+
+Checks if the unit is pvp flagged
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_pvp_flagged** `boolean`
+
+### ni.unit.is_silenced (target)
+
+Checks if the unit is silenced
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_silenced** `boolean`
+
+### ni.unit.is_pacified (target)
+
+Checks if the unit is pacified
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_pacified** `boolean`
+
+### ni.unit.is_stunned (target)
+
+Checks if the unit is stunned
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_stunned** `boolean`
+
+### ni.unit.is_disarmed (target)
+
+Checks if the unit is disarmed
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_disarmed** `boolean`
+
+### ni.unit.is_confused (target)
+
+Checks if the unit is confused
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_confused** `boolean`
+
+### ni.unit.is_fleeing (target)
+
+Checks if the unit is fleeing
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_fleeing** `boolean`
+
+### ni.unit.is_possessed (target)
+
+Checks if the unit is possessed
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_possessed** `boolean`
+
+### ni.unit.is_not_selectable (target)
+
+Checks if the unit is not selectable
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_not_selectable** `boolean`
+
+### ni.unit.is_skinnable (target)
+
+Checks if the unit is skinnable
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_skinnable** `boolean`
+
+### ni.unit.is_mounted (target)
+
+Checks if the unit is mounted
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_mounted** `boolean`
+
+### ni.unit.is_immune (target)
+
+Checks if the unit is immune
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_immune** `boolean`
+
 ### ni.unit.type (target)
 
 Gets the units creature type.
@@ -300,6 +480,26 @@ Parameters:
 
 Returns:
 - **is_totem** `boolean`
+
+### ni.unit.is_undead (target)
+
+Checks if the unit is a undead
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_undead** `boolean`
+
+### ni.unit.is_demon (target)
+
+Checks if the unit is a demon
+
+Parameters:
+- **target** `string`
+
+Returns:
+- **is_demon** `boolean`
 
 ### ni.unit.threat (target_a, target_b)
 
