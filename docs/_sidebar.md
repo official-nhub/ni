@@ -24,6 +24,7 @@
   - [gear](api/v3/gear.md)
   - [object](api/v3/object.md)
   - [power](api/v3/power.md)
+  - [rune](api/v3/rune.md)
   - [unit](api/v3/unit.md)
   - [player](api/v3/player.md)
   - [spell](api/v3/item.md)
