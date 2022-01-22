@@ -737,6 +737,30 @@ Returns:
 Notes:
 See the returns for UnitBuff as this is a wrapper for that.
 
+### ni.unit.buff_remaining (target, buff[, filter])
+
+Get unit buff remaining
+
+Parameters:
+- **target** `string`
+- **buff** `number or string`
+- **filter** `string`
+
+Returns:
+- **buff_remaining** `number`
+
+### ni.unit.buff_stacks (target, buff[, filter])
+
+Get unit buff stacks
+
+Parameters:
+- **target** `string`
+- **buff** `number or string`
+- **filter** `string`
+
+Returns:
+- **buff_stacks** `number`
+
 ### ni.unit.debuff (target, debuff[, filter])
 
 Gets information about the debuff on a unit
@@ -751,6 +775,30 @@ Returns:
 
 Notes:
 See the returns for UnitDebuff as this is a wrapper for that.
+
+### ni.unit.debuff_remaining (target, debuff[, filter])
+
+Get unit debuff remaining
+
+Parameters:
+- **target** `string`
+- **debuff** `number or string`
+- **filter** `string`
+
+Returns:
+- **debuff_remaining** `number`
+
+### ni.unit.debuff_stacks (target, debuff[, filter])
+
+Get unit debuff stacks
+
+Parameters:
+- **target** `string`
+- **debuff** `number or string`
+- **filter** `string`
+
+Returns:
+- **buff_stacks** `number`
 
 ### ni.unit.index_buff (target, index)
 

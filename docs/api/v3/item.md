@@ -1,3 +1,16 @@
+### ni.item.info (item)
+
+Gets the item information
+
+Parameters:
+- **item** `string or number`
+
+Returns:
+- **...**
+
+Notes:
+Wrapper for GetItemInfo.  See that for appropriate documentation.
+
 ### ni.item.spell (item)
 
 Checks if an item has a cast ability
@@ -68,4 +81,14 @@ Parameters:
 
 Returns:
 - **cooldown** `number`
+
+### ni.item.is_equippable (item)
+
+Checks if an item is equippable
+
+Parameters:
+- **item** `string or number`
+
+Returns:
+- **is_equippable** `boolean`
 

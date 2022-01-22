@@ -81,3 +81,18 @@ Parameters:
 Returns:
 - **has_glyph** `boolean`
 
+### ni.player.shapeshift_form_id (id)
+
+Gets the current shapeshift form id
+
+Returns:
+- **form_id** `number`
+
+### ni.player.cancel_buff (spell, filter)
+
+Canceles a specific buff on the player
+
+Parameters:
+- **spell** `string`
+- **filter** `string`
+

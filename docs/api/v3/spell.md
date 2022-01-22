@@ -112,3 +112,42 @@ Parameters:
 Returns:
 - **is_instant** `boolean`
 
+### ni.spell.is_usable (spell)
+
+Determines whether a spell can be used by the player character
+
+Parameters:
+- **spell** `string or number`
+
+Returns:
+- **usable** `boolean`
+- **no_mana** `boolean`
+
+### ni.spell.is_current (spell)
+
+Determines if a spell is currently being cast or qued by the player
+
+Parameters:
+- **spell** `string or number`
+
+Returns:
+- **is_current** `boolean`
+
+### ni.spell.stop_casting ()
+
+Stops the current spellcasting.  Doesn't work for channeled spells.
+
+### ni.spell.valid (spell, target[, is_facing[, line_of_sight[, is_friendly]]])
+
+Checks if a spell is valid to be cast on a unit
+
+Parameters:
+- **spell** `string or number`
+- **target** `string`
+- **is_facing** `boolean`
+- **line_of_sight** `boolean`
+- **is_friendly** `boolean`
+
+Returns:
+- **valid** `boolean`
+
