@@ -50,11 +50,25 @@ Sets the player creature tracking value.
 Parameters:
 - **value** `number`
 
+### ni.player.get_creature_tracking ()
+
+Gets the player creature tracking value.
+
+Returns:
+- **value** `number`
+
 ### ni.player.set_resource_tracking (value)
 
 Sets the player resource tracking value.
 
 Parameters:
+- **value** `number`
+
+### ni.player.get_resource_tracking ()
+
+Gets the player resource tracking value.
+
+Returns:
 - **value** `number`
 
 ### ni.player.target (target)

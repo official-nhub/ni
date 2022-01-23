@@ -12,6 +12,18 @@ Split the path into an entry table.
 Returns:
 - [`entry table`](#entry)
 
+### ni.io.load_string (string[, chunk])
+
+Loads a string into buffer to be executed.
+
+Parameters:
+- **string** `string`
+- **chunk** `string`
+
+Returns:
+- **func** `function`
+- **err** `string`
+
 ### ni.io.load_file (path[, chunk[, parser]])
 
 This function will load the selected file into the lua state.

@@ -41,3 +41,21 @@ Gets the HWID for the current users computer base64 encoded.
 Returns:
 - **hwid** `string`
 
+### ni.utilities.log (message)
+
+Logs a message to the lua log file
+
+Parameters:
+- **message** `string`
+
+### ni.utilities.has_bit (item, bit)
+
+Checks if a bit is set on an integer
+
+Parameters:
+- **item** `number`
+- **bit** `number`
+
+Returns:
+- **has_bit** `boolean`
+
