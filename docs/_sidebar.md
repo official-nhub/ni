@@ -25,12 +25,13 @@
   - [object](api/v3/object.md)
   - [power](api/v3/power.md)
   - [rune](api/v3/rune.md)
+  - [runes](api/v3/runes.md)
   - [unit](api/v3/unit.md)
   - [player](api/v3/player.md)
   - [spell](api/v3/item.md)
+  - [update](api/v3/update.md)
+  - [ui](api/v3/ui.md)
   - [Backend](api/v3/backend.md)
-  - [Packets](api/v3/packets.md)
-  - [UI](api/v3/ui.md)
 
 - Deprecated
 
