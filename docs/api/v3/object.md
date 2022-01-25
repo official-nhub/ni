@@ -18,15 +18,25 @@ Parameters:
 Returns:
 - **type** `number`
 
-### ni.object.is_player (object)
+### ni.object.is_item (object)
 
-Gets if the object is a player
+Gets if the object is a item
 
 Parameters:
 - **object** `string`
 
 Returns:
-- **is_player** `boolean`
+- **is_item** `boolean`
+
+### ni.object.is_container (object)
+
+Gets if the object is a container
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_container** `boolean`
 
 ### ni.object.is_unit (object)
 
@@ -37,6 +47,46 @@ Parameters:
 
 Returns:
 - **is_unit** `boolean`
+
+### ni.object.is_player (object)
+
+Gets if the object is a player
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_player** `boolean`
+
+### ni.object.is_game_object (object)
+
+Gets if the object is a game object
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_game_object** `boolean`
+
+### ni.object.is_dynamic_object (object)
+
+Gets if the object is a dynamic object
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_dynamic_object** `boolean`
+
+### ni.object.is_corpse (object)
+
+Gets if the object is a dynamic object
+
+Parameters:
+- **object** `string`
+
+Returns:
+- **is_dynamic_object** `boolean`
 
 ### ni.object.location (token)
 

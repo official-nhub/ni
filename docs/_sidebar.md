@@ -16,6 +16,7 @@
   - [io](api/v3/io.md)
   - [client](api/v3/client.md)
   - [utilities](api/v3/utilities.md)
+  - [table](api/v3/table.md)
   - [input](api/v3/input.md)
   - [events](api/v3/item.md)
   - [world](api/v3/world.md)
@@ -30,6 +31,7 @@
   - [player](api/v3/player.md)
   - [spell](api/v3/item.md)
   - [update](api/v3/update.md)
+  - [objects](api/v3/objects.md)
   - [ui](api/v3/ui.md)
   - [Backend](api/v3/backend.md)
 
