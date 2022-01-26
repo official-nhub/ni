@@ -96,7 +96,10 @@ Parameters:
 Returns:
 - **manager** `userdata`
 
-### ni.ui.separator ()
+### ni.ui.separator (parent)
 
 Creates a new element separator in the window.
+
+Parameters:
+- **parent** `userdata`
 

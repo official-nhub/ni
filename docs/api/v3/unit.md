@@ -678,6 +678,17 @@ Parameters:
 Returns:
 - **unit_can_attack** `boolean`
 
+### ni.unit.can_assist (target_a, target_b)
+
+Checks to see if target_a can assist target_b
+
+Parameters:
+- **target_a** `string`
+- **target_b** `string`
+
+Returns:
+- **unit_can_attack** `boolean`
+
 ### ni.unit.power (target[, power_type])
 
 Gets the current power value for a unit
@@ -827,6 +838,28 @@ Returns:
 
 Notes:
 See the returns for UnitDebuff as this is a wrapper for that.
+
+### ni.unit.enemies_in_range (target, distance)
+
+Gets a table of enemy units of a target within the given range
+
+Parameters:
+- **target** `string`
+- **distance** `number`
+
+Returns:
+- **in_range** `table`
+
+### ni.unit.friends_in_range (target, distance)
+
+Gets a table of friendly units of a target within the given range
+
+Parameters:
+- **target** `string`
+- **distance** `number`
+
+Returns:
+- **in_range** `table`
 
 ### aura
 
