@@ -72,6 +72,35 @@ function ni.spell.cast(...)
 end
 
 --[[--
+Casts a spell by name or id on area
+ 
+Parameters:
+- **spell** `string or number`
+- **target** `string`
+- **offset** `number`
+@param spell
+@param target string
+@param[opt] offset number
+]]
+function ni.spell.cast_at(spell, target, offset)
+	if spell then
+		if target == "mouse" then
+			ni.spell.cast(spell)
+			ni.player.click_at("mouse")
+		elseif ni.unit.exists(target) then
+			local offset = true and offset or random()
+			local x, y, z = ni.unit.info(target)
+			local r = offset * sqrt(random())
+			local theta = random() * 360
+			local tx = x + r * cos(theta)
+			local ty = y + r * sin(theta)
+			ni.spell.cast(spell)
+			ni.player.click_at(tx, ty, z)
+		end
+	end
+end
+
+--[[--
 Gets the spell name from id
  
 Parameters:
