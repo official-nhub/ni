@@ -867,3 +867,11 @@ Table keys:
 - **name** `string`
 - **ID** `number`
 
+### in_range
+
+Table keys:
+- **guid** `string`
+- **type** `number`
+- **name** `string`
+- **distance** `number`
+
