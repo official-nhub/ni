@@ -84,19 +84,19 @@ Parameters:
 ]]
 function ni.spell.cast_at(spell, target, offset)
 	if spell then
-		if target == "mouse" then
-			ni.spell.cast(spell)
-			ni.player.click_at("mouse")
-		elseif ni.unit.exists(target) then
-			local offset = true and offset or random()
-			local x, y, z = ni.unit.info(target)
-			local r = offset * sqrt(random())
-			local theta = random() * 360
-			local tx = x + r * cos(theta)
-			local ty = y + r * sin(theta)
-			ni.spell.cast(spell)
-			ni.player.click_at(tx, ty, z)
-		end
+	if target == "mouse" then
+	   ni.spell.cast(spell)
+	   ni.player.click_at("mouse")
+	elseif ni.unit.exists(target) then
+	local offset = true and offset or random()
+	local x, y, z = ni.unit.info(target)
+	local r = offset * sqrt(random())
+	local theta = random() * 360
+	local tx = x + r * cos(theta)
+	local ty = y + r * sin(theta)
+	   ni.spell.cast(spell)
+	   ni.player.click_at(tx, ty, z)
+	end
 	end
 end
 
