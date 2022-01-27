@@ -5,6 +5,42 @@ Gets the HWID for the current users computer base64 encoded.
 Returns:
 - **hwid** `string`
 
+### ni.utilities.randomseed (seed)
+
+Sets the seed for the random generator.
+
+Parameters:
+- **seed** `number`
+
+### ni.utilities.random ([l[, u]])
+
+Generates a random number.
+
+Parameters:
+- **l** `number`
+- **u** `number`
+
+Returns:
+- **value** `number`
+
+Notes:
+When called without arguments, the number returned is between 0 and 1.
+When called with 1 argument (n), the range is between 1 and n.
+When called with 2 arguments (l, u), the range is between l and u.
+
+### ni.utilities.randomize_point (x, y[, offset])
+
+Gets a random point within range of specified location based off the offset (or random if none specified)
+
+Parameters:
+- **x** `number`
+- **y** `number`
+- **offset** `number`
+
+Returns:
+- **new_x** `number`
+- **new_y** `number`
+
 ### ni.utilities.log (message)
 
 Logs a message to the lua log file

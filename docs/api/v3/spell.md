@@ -30,6 +30,26 @@ Parameters:
 - **spell** `string or number`
 - **target** `string`
 
+### ni.spell.cast_at (spell, x, y, z[, offset])
+
+Casts a spell by name or id at the specified location.
+
+Parameters:
+- **spell** `string or number`
+- **x** `number`
+- **y** `number`
+- **z** `number`
+- **offset** `number`
+
+### ni.spell.cast_on (spell, target[, offset])
+
+Casts a spell by name or id on the specified target.
+
+Parameters:
+- **spell** `string or number`
+- **target** `string`
+- **offset** `number`
+
 ### ni.spell.id (name)
 
 Gets the spell name from id
