@@ -47,7 +47,8 @@ if not ni.loaded then
       "spell.lua",
       "update.lua",
       "objects.lua",
-      "ui.lua"
+      "ui.lua",
+      "bootstrap.lua"
    }
 
    -- Load each of the above files here

@@ -48,7 +48,7 @@ function ni.update.register_callback(title, func)
       end
    end
    if not contains then
-      tinsert(event_handlers, {
+      tinsert(update_callbacks, {
          name = title,
          callback = func
       })
@@ -77,5 +77,5 @@ end
 Initializes the OnUpdate handler to be used.
 ]]
 function ni.update.initialize()
-   ni.frame:SetScript("OnUpdate", update_handler)
+   ni.frame:SetScript("OnUpdate", update_callback)
 end

@@ -2,6 +2,7 @@ local ni, core = ...
 
 -- Localize string creation for main folder as it'll be used a few times
 local window_folder = core.."components\\main_window\\"
+ni.io.load_file(window_folder .. "\\" .. "profiles.lua", "profiles.lua")
 
 ni.window = ni.ui.window("ni", false)
 if ni.window then
@@ -26,7 +27,13 @@ if ni.window then
          local combo = ni.ui.combobox(selector_tab)
          combo.Text = "##primary"
          combo.Selected = "None"
-         combo:Add("None")         
+         combo:Add("None")
+         for k in pairs(ni.profiles) do
+            combo:Add(k)
+         end
+         combo.Callback = function(selected)
+            ni.profiles.primary = selected
+         end
       end
       do
          local label = ni.ui.label(selector_tab)
@@ -35,7 +42,13 @@ if ni.window then
          local combo = ni.ui.combobox(selector_tab)
          combo.Text = "##secondary"
          combo.Selected = "None"
-         combo:Add("None")         
+         combo:Add("None")
+         for k in pairs(ni.profiles) do
+            combo:Add(k)
+         end
+         -- combo.Callback = function(selected)
+         --    ni.profiles.secondary = selected
+         -- end
       end
       do
          local label = ni.ui.label(selector_tab)
@@ -44,7 +57,13 @@ if ni.window then
          local combo = ni.ui.combobox(selector_tab)
          combo.Text = "##generic"
          combo.Selected = "None"
-         combo:Add("None")         
+         combo:Add("None")
+         -- for i=1, #ni.profiles do
+         --    combo:Add(ni.profiles[i].filename)
+         -- end
+         -- combo.Callback = function(selected)
+         --    ni.profiles.generic = selected
+         -- end
       end
    end
    do
@@ -120,6 +139,20 @@ if ni.window then
    ni.input.register_callback("ni-main", function()
       if ni.input.key_down(toggle_key) then
          ni.window.Open = not ni.window.Open
+         return true
+      end
+      return false
+   end)
+   -- This should be moved outside of if ni.window
+   ni.input.register_callback("primary", function()
+      if ni.input.key_down(primary_key) then
+         ni.profiles[ni.profiles.primary].started = not ni.profiles[ni.profiles.primary].started
+         if ni.profiles[ni.profiles.primary].started then
+            ni.io.load_file(ni.profiles[ni.profiles.primary].path)
+            ni.update.register_callback(ni.profiles.primary, ni.bootstrap[ni.profiles.primary].execute)
+         else
+            ni.update.unregister_callback(ni.profiles.primary)
+         end
          return true
       end
       return false
